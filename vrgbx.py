@@ -9,6 +9,8 @@ g = 255
 b = 255
 pixels = '11111111' # x-axis
 
+verbose = False
+
 
 def hex_to_rgb(value):
     value = value.lstrip('#')
@@ -56,7 +58,8 @@ if len(pixels) > 8:
 if v > 100 or v < 0:
     usage()
 
-print("Setting Blinkt to value {v}, colour {r},{g},{b}, pixels {pixels}".format(r=r, g=g, b=b, v=v, pixels=pixels))
+if verbose:
+    print("Setting Blinkt to value {v}, colour {r},{g},{b}, pixels {pixels}".format(r=r, g=g, b=b, v=v, pixels=pixels))
 
 blinkt.set_clear_on_exit(False)
 

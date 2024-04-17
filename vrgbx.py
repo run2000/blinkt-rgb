@@ -24,7 +24,28 @@ def usage():
     sys.exit(1)
 
 
-if len(sys.argv) == 4:
+if len(sys.argv) == 6:
+
+    # Exit if non integer value. int() will raise a ValueError
+    try:
+        v = int(sys.argv[1])
+        r, g, b = [int(x) for x in sys.argv[2:5]]
+        pixels = sys.argv[5].rjust(8, '0')
+
+    except ValueError:
+        usage()
+
+elif len(sys.argv) == 5:
+
+    # Exit if non integer value. int() will raise a ValueError
+    try:
+        v = int(sys.argv[1])
+        r, g, b = [int(x) for x in sys.argv[2:]]
+
+    except ValueError:
+        usage()
+
+elif len(sys.argv) == 4:
 
     # Try #rrggbb value
     v = int(sys.argv[1])
